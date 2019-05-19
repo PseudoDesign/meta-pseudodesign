@@ -20,11 +20,14 @@ do_install() {
 
     install -d "${D}/${sysconfdir}/systemd/system"
     install -m 0644 "${WORKDIR}/nvmfs.service" "${D}/${sysconfdir}/systemd/system"
+
+    install -d "${D}/nvm"
 }
 
 
 #Pack the path
 FILES_${PN} += "/sbin"
+FILES_${PN} += "/nvm"
 FILES_${PN} += "${sysconfdir}/systemd/system"
 
 REQUIRED_DISTRO_FEATURES= "systemd"

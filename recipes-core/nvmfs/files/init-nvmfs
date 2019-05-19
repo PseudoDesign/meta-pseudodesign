@@ -30,8 +30,6 @@ else
     echo "NVM partition is not mounted"
 fi
 
-mkdir -p $nvm_location
-
 # Attempt to mount the NVM partition
 if mount "${partition_node}" "${nvm_location}"; then
     echo "Successfully mounted existing NVM"
