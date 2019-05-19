@@ -10,7 +10,7 @@ RemainAfterExit=Yes
 StandardOutput=syslog
 TimeoutSec=0
 ExecStart=/bin/bash /sbin/init-nvmfs
-ExecStop=/bin/umount /media/nvm
+ExecStop=/bin/umount /nvm
 
 [Install]
 WantedBy=local-fs.target

@@ -1,5 +1,5 @@
 #!/bin/bash
-nvm_location="/media/nvm"
+nvm_location="/nvm"
 device_node="/dev/mmcblk0"
 partition_number="4"
 partition_node="${device_node}p${partition_number}"
