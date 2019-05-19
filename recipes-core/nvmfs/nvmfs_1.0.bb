@@ -15,11 +15,11 @@ RDEPENDS_${PN} += " bash "
 SYSTEMD_SERVICE_${PN} = "nvmfs.service"
 
 do_install() {
-             install -d "${D}/sbin"
-             install -m 0755 "${WORKDIR}/init-nvmfs" "${D}/sbin"
+    install -d "${D}/sbin"
+    install -m 0755 "${WORKDIR}/init-nvmfs" "${D}/sbin"
 
-             install -d "${D}/${sysconfdir}/systemd/system"
-             install -m 0644 "${WORKDIR}/nvmfs.service" "${D}/${sysconfdir}/systemd/system"
+    install -d "${D}/${sysconfdir}/systemd/system"
+    install -m 0644 "${WORKDIR}/nvmfs.service" "${D}/${sysconfdir}/systemd/system"
 }
 
 
