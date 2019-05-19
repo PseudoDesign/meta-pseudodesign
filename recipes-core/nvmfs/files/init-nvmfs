@@ -13,14 +13,12 @@ last_sector=$(fdisk -l $device_node | awk -v str="$previous_partition_node" '$0~
 
 # Feed input into fdisk to create the partition
 sed -e 's/\s*\([\+0-9a-zA-Z]*\).*/\1/' << EOF | fdisk ${device_node}
-  o # clear the in memory partition table
   n # new partition
   p # primary partition
   ${partition_number} # partition number 
   $(($last_sector+1))  # Start just after the end of the previous partition
     # default - extend to the end of the disk
-  w # write the partition table
-  q # and we're done
+  w # write the partition table and exit
 EOF
 }
 
@@ -43,13 +41,12 @@ else
 fi
 
 # We couldn't mount the partition location.  See if the partition_node exists
-if [ ! -f "$partition_node" ]; then
+if [ ! -e "$partition_node" ]; then
     echo "Device node $partition_node does not exist"
     # Add partition to table
     create_partition
 else
-    echo "Device node $partition_node already exists and should have mounted.  Something is wrong, likely with the filesystem."
-    exit 1
+    echo "Device node $partition_node already exists."
 fi
 
 # Attempt to mount the NVM partition
@@ -62,7 +59,7 @@ fi
 
 # We couldn't mount the partiton location.  
 # We already created the partition, so zero out the node and create the filesystem
-dd if=/dev/zero of="$partition_node" bs=1M
+echo "Initializing the filesystem.  This may take a few minutes."
 mkfs.ext4 "$partition_node"
 
 # Try to mount again; return the exit code
