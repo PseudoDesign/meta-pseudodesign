@@ -34,8 +34,8 @@ fi
 
 mkdir -p $nvm_location
 
-# Attempt to mount the NVM partition (it needs to exist in fstab)
-if mount "${nvm_location}"; then
+# Attempt to mount the NVM partition
+if mount "${partition_node}" "${nvm_location}"; then
     echo "Successfully mounted existing NVM"
     exit 0
 else
@@ -47,27 +47,23 @@ if [ ! -f "$partition_node" ]; then
     echo "Device node $partition_node does not exist"
     # Add partition to table
     create_partition
-    # TODO: zero out the node
 else
     echo "Device node $partition_node already exists and should have mounted.  Something is wrong, likely with the filesystem."
     exit 1
 fi
 
 # Attempt to mount the NVM partition
-if mount "${nvm_location}"; then
+if mount "${partition_node}" "${nvm_location}"; then
     echo "Successfully mounted existing NVM"
     exit 0
 else
     echo "Unable to mount $nvm_location partition."
 fi
 
-# We couldn't mount the partiton location.  We already created the partition, so create the filesystem
-if mkfs.ext4 "$partition_node"; then
-    echo "Successfully made ext4fs"
-else
-    echo "Failed to make ext4fs"
-    # TODO: Exit with failure
-fi
+# We couldn't mount the partiton location.  
+# We already created the partition, so zero out the node and create the filesystem
+dd if=/dev/zero of="$partition_node" bs=1M
+mkfs.ext4 "$partition_node"
 
 # Try to mount again; return the exit code
-mount "${nvm_location}"
+mount "${partition_node}" "${nvm_location}"
