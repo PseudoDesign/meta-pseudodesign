@@ -20,6 +20,8 @@ sed -e 's/\s*\([\+0-9a-zA-Z]*\).*/\1/' << EOF | fdisk ${device_node}
     # default - extend to the end of the disk
   w # write the partition table and exit
 EOF
+sleep 2
+sync
 }
 
 # Exit if the partition is already mounted
