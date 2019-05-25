@@ -24,4 +24,4 @@ Adds the logo ascii image to `/etc/issue`.
 
 #### nvmfs
 
-Fills the remainder of the main flash memory device with an NVM partition at mmcblkNp4.
+Fills the remainder of the main flash memory device with an NVM partition at `/dev/mmcblk0p4`.
