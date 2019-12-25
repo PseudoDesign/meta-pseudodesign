@@ -1,0 +1,8 @@
+[match]
+Name=@PSEUDODESIGN_WIFI_INTERFACE@
+
+[Network]
+DHCP=yes
+
+[DHCP]
+RouteMetric=20
