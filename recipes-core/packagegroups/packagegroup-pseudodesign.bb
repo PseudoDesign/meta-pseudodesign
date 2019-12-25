@@ -1,4 +1,4 @@
-SUMMARY = "Packages installed on the Celstial project BSP"
+SUMMARY = "Packages installed in the standard PseudoDesign runtime"
 PR = "r1"
 
 inherit packagegroup
@@ -8,6 +8,4 @@ RDEPENDS_${PN} = "\
      docker \
      git \
      vim \
-     nvmfs \
-     curl \
 "
