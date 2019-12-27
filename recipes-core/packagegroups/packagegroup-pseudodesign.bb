@@ -8,4 +8,5 @@ RDEPENDS_${PN} = "\
      docker \
      git \
      vim \
+     init-ifupdown \
 "
