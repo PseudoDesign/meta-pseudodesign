@@ -9,4 +9,5 @@ RDEPENDS_${PN} = "\
      git \
      vim \
      init-ifupdown \
+     sshd \
 "
