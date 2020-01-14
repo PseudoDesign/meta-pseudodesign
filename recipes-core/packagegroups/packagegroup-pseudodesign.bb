@@ -5,9 +5,9 @@ inherit packagegroup
 
 RDEPENDS_${PN} = "\
      openssh \
-     docker \
+     python3 \
+     python3-pip \
      git \
      vim \
      init-ifupdown \
-     sshd \
 "
