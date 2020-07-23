@@ -10,5 +10,4 @@ RDEPENDS_${PN} = "\
      git \
      vim \
      init-ifupdown \
-     packagegroup-core-buildessential \
 "
