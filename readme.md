@@ -14,6 +14,12 @@ Adds pseudodesign's public ssh keys to authorized keys
 
 Adds the logo ascii image to `/etc/issue`.
 
+#### Images
+
+##### pseudodesign-dev-image
+
+Creates the development image for the pseudodesign distro
+
 #### nvmfs
 
 Fills the remainder of the main flash memory device with an NVM partition at `/dev/mmcblk0p4`.
