@@ -6,8 +6,4 @@ LICENSE = "MIT"
 
 inherit core-image
 
-IMAGE_FEATURES += "tools-debug"
-
-CORE_IMAGE_EXTRA_INSTALL += "packagegroup-pseudodesign"
-
-ENABLE_UART = "1" 
+DISTRO ?= "pseudodesign-dev"
