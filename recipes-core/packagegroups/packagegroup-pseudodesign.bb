@@ -11,4 +11,6 @@ RDEPENDS_${PN} = "\
      git \
      vim \
      init-ifupdown \
+     opencv \
+     python3-opencv \
 "
