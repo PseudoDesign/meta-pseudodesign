@@ -6,6 +6,7 @@ inherit packagegroup
 RDEPENDS_${PN} = "\
      openssh \
      python3 \
+     packagegroup-core-buildessential \
      python3-pip \
      git \
      vim \
