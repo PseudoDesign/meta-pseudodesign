@@ -11,6 +11,5 @@ RDEPENDS_${PN} = "\
      git \
      vim \
      init-ifupdown \
-     
      python3-video-latency-test \
 "
