@@ -11,10 +11,4 @@ RDEPENDS_${PN} = "\
      git \
      vim \
      init-ifupdown \
-     python3-video-latency-test \
-     gstreamer1.0-plugins-base \
-     gstreamer1.0-plugins-good \
-     gstreamer1.0-plugins-bad \
-     gstreamer1.0-plugins-ugly \
-     screen \
 "
