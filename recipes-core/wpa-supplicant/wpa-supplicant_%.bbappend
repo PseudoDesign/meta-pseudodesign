@@ -1,6 +1,6 @@
 ## Add a wifi network to wpa_supplicant
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
 SRC_URI += " file://wpa_supplicant-pseudodesign.conf \
              file://wireless.network"
@@ -8,7 +8,7 @@ SRC_URI += " file://wpa_supplicant-pseudodesign.conf \
 FILES_${PN} += "${sysconfdir}/wpa_supplicant/wpa_supplicant-${PSEUDODESIGN_WIFI_INTERFACE}.conf \
                 ${sysconfdir}/systemd/network/wireless.network"
 
-do_install_append() {
+do_install:append() {
 
     sed -i -e 's#[@]PSEUDODESIGN_WIFI_PSK[@]#${PSEUDODESIGN_WIFI_PSK}#' ${WORKDIR}/wpa_supplicant-pseudodesign.conf
     sed -i -e 's#[@]PSEUDODESIGN_WIFI_SSID[@]#${PSEUDODESIGN_WIFI_SSID}#' ${WORKDIR}/wpa_supplicant-pseudodesign.conf

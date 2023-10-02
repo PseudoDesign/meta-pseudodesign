@@ -1,8 +1,8 @@
-FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
 SRC_URI += "file://pseudodesign/issue "
 
-do_install_append () {
+do_install:append () {
     install -m 644 ${WORKDIR}/pseudodesign/issue  ${D}${sysconfdir}
     install -m 644 ${WORKDIR}/pseudodesign/issue  ${D}${sysconfdir}/issue.net
     if [ -n "${DISTRO_NAME}" ]; then
